@@ -23,8 +23,6 @@ void initSW2()
     //TODO: Initialize the appropriate pins to work with the external switch using a
     //change notification interrupt.
     TRISBbits.TRISB2 = 1; //Sets the pin for external switch to input
-//    IEC0bits.AD1IE = 1; // Enable the interrupt for A/D conversion
-//    IFS0bits.AD1IF = 0; // Put the interrupt flag down for the A/D
     AD1PCFGBITS.PCFG4 = DIGITAL;
     //Put the overall CN Interrupt flag down (set it to 0)
     IFS1bits.CNIF = 0;
@@ -38,6 +36,14 @@ void initSW2()
      * on the development board because one is already there.
      */
     CNEN2bits.CN27IE = 1;
+//Enable the pull up resistors for the external components
+    CNPU1bits.CN2PUE = 1;
+    CNPU1bits.CN3PUE = 1;
+    CNPU1bits.CN6PUE = 1;
+
+//Enable the ODCs for the LEDs
+    ODCAbits.ODA0 = 1;  //ODC for pin 2
+    ODCAbits.ODA0 = 1;  //ODC for pin 3
 }
 void TurnOnLED(int led)
 {

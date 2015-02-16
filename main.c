@@ -1,6 +1,6 @@
 // ******************************************************************************************* //
 //
-// File:         lab1p1.c
+// File:         main.c
 // Date:         
 // Authors:      
 //
@@ -58,6 +58,7 @@ void _ISR _CNInterrupt(void)
     //TODO: Implement the interrupt to capture the press of the button
     IFS1bits.CNIF = 0;  //Put flag down
     if(PORTBbits.RB2 == RELEASED)
+    {
         if(CurrState == run)
         {
             CurrState = stop;
@@ -66,5 +67,6 @@ void _ISR _CNInterrupt(void)
         {
             CurrState = run;
         }
+    }
 
 }

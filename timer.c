@@ -13,7 +13,8 @@
 
 /* Delay 1 millisecond * the input (delay)
  */
-void delayUs(unsigned int delay){
+void delayUs(unsigned int delay)
+{
     TMR2 = 0; //According to the datasheet this should be reset automatically, but it does not sometimes.
     PR2 = delay*ONE_MILLISECOND; //Period register value calculated from lecture
     T2CONbits.TCKPS = 0b11; //prescalar 256
