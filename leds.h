@@ -12,7 +12,7 @@
  * Defines the LEDs based on their latch pin numbers
 *****************************************************************/
 #define STOP_LED LATAbits.LATA0
-#define RUN_LED LATBbits.LATA1
+#define RUN_LED LATAbits.LATA1
 #define STOP 0
 #define RUN 1
 #define RELEASED 1

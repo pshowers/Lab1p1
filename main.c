@@ -9,7 +9,7 @@
 
 #include "p24fj64ga002.h"
 #include "leds.h"
-#include "timer.c"
+#include "timer.h"
 #include <stdio.h>
 
 
@@ -33,7 +33,9 @@ volatile stateType CurrState = 0;
 
 int main(void)
 {
-    CurrState = run;
+
+    initLEDs();
+    initSW2();
 
     while(1)
     {
@@ -48,6 +50,7 @@ int main(void)
             case stop:
             TurnOnLED(STOP);
             break;
+        }
     }
     
     return 0;
@@ -70,3 +73,4 @@ void _ISR _CNInterrupt(void)
     }
 
 }
+
