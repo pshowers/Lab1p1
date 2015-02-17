@@ -18,7 +18,7 @@ void initLEDs()
     ODCAbits.ODA1 = 1;  //ODC for pin 3
 //Initialize the LEDs
     STOP_LED = OFF;
-    RUN_LED = ON;
+    RUN_LED = OFF;
 }
 
 void initSW2()
